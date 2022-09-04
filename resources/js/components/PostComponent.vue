@@ -2,6 +2,8 @@
     <div>
         <SinglePostComponent></SinglePostComponent>
         <div>Name: {{ name }}</div>
+        <button @click="sayHi">Hi</button>
+        <button @click="getNumberSale">22</button>
     </div>
 </template>
 
@@ -15,6 +17,16 @@ export default {
           age: 32,
           name: 'Alex',
       }
+    },
+
+    methods: {
+        sayHi() {
+            console.log('Hi')
+        },
+
+        getNumberSale() {
+            console.log(22)
+        }
     },
 
     components: {SinglePostComponent},
