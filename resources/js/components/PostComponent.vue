@@ -2,6 +2,7 @@
     <div>
         <SinglePostComponent></SinglePostComponent>
         <div>Name: {{ name }}</div>
+        <div>Job: {{ alexJob }}</div>
         <button @click="sayHi">Hi</button>
         <button @click="getNumberSale">22</button>
     </div>
@@ -26,6 +27,12 @@ export default {
 
         getNumberSale() {
             console.log(22)
+        }
+    },
+
+    computed: {
+        alexJob() {
+            return this.name + ' работает программистом'
         }
     },
 
