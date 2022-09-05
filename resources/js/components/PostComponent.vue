@@ -1,40 +1,61 @@
 <template>
     <div>
         <SinglePostComponent></SinglePostComponent>
-        <div>Name: {{ name }}</div>
-        <div>Job: {{ alexJob }}</div>
-        <button @click="sayHi">Hi</button>
-        <button @click="getNumberSale">22</button>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Job</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="person in persons">
+                <th scope="row">{{ person.id}}</th>
+                <td>{{ person.name}}</td>
+                <td>{{ person.age}}</td>
+                <td>@{{ person.job}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
 <script>
 import SinglePostComponent from "./SinglePostComponent";
+
 export default {
     name: "PostComponent",
 
     data() {
-      return {
-          age: 32,
-          name: 'Alex',
-      }
-    },
-
-    methods: {
-        sayHi() {
-            console.log('Hi')
-        },
-
-        getNumberSale() {
-            console.log(22)
+        return {
+            persons: [
+                {
+                    id: 1,
+                    name: 'Alex',
+                    age: 20,
+                    job: 'coach'
+                },
+                {
+                    id: 2,
+                    name: 'Elena',
+                    age: 17,
+                    job: 'rest'
+                },
+                {
+                    id: 3,
+                    name: 'Petr',
+                    age: 34,
+                    job: 'seller'
+                }
+            ]
         }
     },
 
-    computed: {
-        alexJob() {
-            return this.name + ' работает программистом'
-        }
-    },
+    methods: {},
+
+    computed: {},
 
     components: {SinglePostComponent},
 }
