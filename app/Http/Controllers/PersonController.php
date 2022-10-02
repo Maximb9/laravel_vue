@@ -30,6 +30,5 @@ class PersonController extends Controller
         ];
 
         return $persons;
-
     }
 }
