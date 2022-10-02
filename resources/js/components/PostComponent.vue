@@ -11,11 +11,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="person in personsAgeMoreTwenty">
+            <tr v-for="person in persons">
                 <th scope="row">{{ person.id }}</th>
                 <td>{{ person.name }}</td>
                 <td>{{ person.age }}</td>
-                <td>@{{ person.job }}</td>
+                <td>{{ person.job }}</td>
             </tr>
             </tbody>
         </table>
@@ -30,46 +30,26 @@ export default {
 
     data() {
         return {
-            persons: [
-                {
-                    id: 1,
-                    name: 'Alex',
-                    age: 20,
-                    job: 'coach'
-                },
-                {
-                    id: 2,
-                    name: 'Elena',
-                    age: 17,
-                    job: 'rest'
-                },
-                {
-                    id: 3,
-                    name: 'Petr',
-                    age: 34,
-                    job: 'seller'
-                },
-                {
-                    id: 4,
-                    name: 'Ksenia',
-                    age: 25,
-                    job: 'traveller'
-                },
-                {
-                    id: 5,
-                    name: 'Alisia',
-                    age: 37,
-                    job: 'teacher'
-                }
-            ]
+            persons: null
         }
     },
 
-    methods: {},
+    mounted() {
+        this.getPersons();
+    },
 
-    computed: {
-        personsAgeMoreTwenty() {
-            return this.persons.filter(person => person.age > 20)
+    methods: {
+        getPersons() {
+            axios.get('/persons')
+                .then(res => {
+                    this.persons = res.data;
+                })
+                .catch(error => {
+
+                })
+                .finally({
+
+                })
         }
     },
 
