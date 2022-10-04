@@ -18,8 +18,6 @@
 
 <script>
 
-import SomeComponent from "./SomeComponent";
-
 export default {
     name: "CreateComponent",
 
@@ -37,7 +35,6 @@ export default {
     },
 
     mounted() {
-        this.$parent.$refs.index.indexLog()
     },
 
     methods: {
@@ -51,8 +48,6 @@ export default {
                 })
         }
     },
-
-    components: {SomeComponent},
 }
 </script>
 

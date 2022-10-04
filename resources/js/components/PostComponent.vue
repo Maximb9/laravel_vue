@@ -19,13 +19,10 @@ export default {
     },
 
     mounted() {
-        console.log(this.$refs.index.indexLog());
     },
 
     methods: {
-        parentLog(){
-            console.log('this is parent Component');
-        }
+
     },
 
     components: {CreateComponent, IndexComponent},

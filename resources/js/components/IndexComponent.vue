@@ -50,37 +50,9 @@ export default {
                 })
         },
 
-        updatePerson(id) {
-            this.editPersonId = null
-            axios.patch(`/api/people/${id}`, {name: this.name, age: this.age, job: this.job})
-                .then(res => {
-                    this.getPeople();
-                })
-        },
-
-        deletePerson(id) {
-            axios.delete(`/api/people/${id}`)
-                .then(res => {
-                    this.getPeople();
-                })
-        },
-
-        changeEditPersonId(id, name, age, job) {
-            this.editPersonId = id
-            let editName = `edit_${id}`
-            let fullEditName = this.$refs[editName][0];
-            fullEditName.name = name
-            fullEditName.age = age
-            fullEditName.job = job
-        },
-
         isEdit(id) {
             return this.editPersonId === id
         },
-
-        indexLog() {
-            console.log('this is Index Component');
-        }
     },
 
     components: {EditComponent, ShowComponent}
