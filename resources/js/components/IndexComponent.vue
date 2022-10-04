@@ -50,7 +50,7 @@ export default {
     },
 
     mounted() {
-      this.getPeople()
+      this.getPeople();
     },
 
     methods: {
@@ -85,6 +85,10 @@ export default {
 
         isEdit(id) {
             return this.editPersonId === id
+        },
+
+        indexLog() {
+            console.log('this is Index Component');
         }
     }
 }
