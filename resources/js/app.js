@@ -1,12 +1,16 @@
 import Vue from "vue";
-import PostComponent from "./components/PostComponent";
+import router from "./router";
+import Index from "./components";
+
 require('./bootstrap');
 
 const app = new Vue({
     el: '#app',
 
     components: {
-        PostComponent,
-    }
+        Index
+    },
+
+    router
 
 })
