@@ -1,12 +1,12 @@
 <template>
 <div>
-    this is tag component
+    create
 </div>
 </template>
 
 <script>
 export default {
-    name: "TagComponent"
+    name: "Create"
 }
 </script>
 

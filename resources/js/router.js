@@ -1,21 +1,15 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import PostComponent from "./components/PostComponent";
-import TagComponent from "./components/TagComponent";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 export default new VueRouter({
-    mode: 'history',
+    mode: "history",
 
     routes: [
         {
-            path: '/posts',
-            component: PostComponent
-        },
-        {
-            path: '/tags',
-            component: TagComponent
+            path: '/people', component: function() {return import('./components/Person/Index')},
+            name: 'person.index',
         }
     ]
-});
+})
