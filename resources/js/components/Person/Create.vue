@@ -16,6 +16,8 @@
 </template>
 
 <script>
+
+import router from "../../router";
 export default {
     name: "Create",
 
@@ -35,7 +37,7 @@ export default {
                 job: this.job
             })
                 .then(res => {
-
+                    router.push({name: 'person.index'})
                 })
         }
     }
