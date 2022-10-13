@@ -17,9 +17,10 @@
 
 <script>
 import router from "../../router";
+
 export default {
     name: "Edit",
-    data(){
+    data() {
         return {
             name: null,
             age: null,
@@ -31,7 +32,7 @@ export default {
         this.getPerson();
     },
 
-    methods:{
+    methods: {
         getPerson() {
             axios.get('/api/people/' + this.$route.params.id)
                 .then(res => {
@@ -45,9 +46,10 @@ export default {
             axios.patch('/api/people/' + this.$route.params.id, {
                 name: this.name,
                 age: this.age,
-                job: this.job})
+                job: this.job
+            })
                 .then(res => {
-                    router.push({ name: 'person.show' })
+                    router.push({name: 'person.show', params: {id: this.$route.params.id}})
                 })
         }
     }
