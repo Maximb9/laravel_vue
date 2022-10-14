@@ -2,11 +2,23 @@ const state = {
     person: null
 }
 
+const getters = {
+    person: () => state.person
+}
+
 const actions = {
-    getPerson() {
-        axios.get(`/api/people/${this.$route.params.id}`)
+    getPerson({commit, state, dispatch}, id) {
+        axios.get(`/api/people/${id}`)
             .then(res => {
-                this.person = res.data.data
+                commit('setPerson', res.data.data)
             });
     },
 }
+
+const mutations = {
+    setPerson(state, person) {
+        state.person = person
+    }
+}
+
+export default {state, mutations, actions, getters}
