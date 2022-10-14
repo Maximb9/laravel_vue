@@ -1,6 +1,7 @@
 import Vue from "vue";
 import router from "./router";
-import Index from "./components";
+import Index from "./components/Index";
+import store from "./store";
 
 require('./bootstrap');
 
@@ -11,5 +12,6 @@ const app = new Vue({
         Index
     },
 
-    router
- })
+    router,
+    store
+})
