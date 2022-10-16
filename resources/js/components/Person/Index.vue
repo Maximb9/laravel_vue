@@ -31,29 +31,22 @@
 export default {
     name: "Index",
 
-    data() {
-        return {
-            people: null
-        }
-    },
-
     mounted() {
-        this.getPeople();
+        this.$store.dispatch('getPeople');
     },
 
     methods: {
-        getPeople() {
-            axios.get('/api/people')
-                .then(res => {
-                    this.people = res.data.data
-                })
-        },
-
         deletePerson(id) {
             axios.delete(`api/people/${id}`)
                 .then(res => {
                     this.getPeople();
                 })
+        }
+    },
+
+    computed: {
+        people() {
+            return this.$store.getters.people
         }
     }
 }
