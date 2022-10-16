@@ -5266,6 +5266,28 @@ var actions = {
     axios.get('/api/people').then(function (res) {
       commit('setPeople', res.data.data);
     });
+  },
+  deletePerson: function deletePerson(_ref3, id) {
+    var dispatch = _ref3.dispatch;
+    axios["delete"]("api/people/".concat(id)).then(function (res) {
+      dispatch('getPeople');
+    });
+  },
+  update: function update() {
+    var _this = this;
+
+    axios.patch("/api/people/".concat(this.$route.params.id), {
+      name: this.name,
+      age: this.age,
+      job: this.job
+    }).then(function (res) {
+      _this.$router.push({
+        name: 'person.show',
+        params: {
+          id: _this.$route.params.id
+        }
+      });
+    });
   }
 };
 var mutations = {
