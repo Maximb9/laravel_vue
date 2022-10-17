@@ -5240,6 +5240,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../router */ "./resources/js/router.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+
 var state = {
   person: null,
   people: null
@@ -5273,18 +5277,18 @@ var actions = {
       dispatch('getPeople');
     });
   },
-  update: function update() {
-    var _this = this;
+  update: function update(_ref4, data) {
+    _objectDestructuringEmpty(_ref4);
 
-    axios.patch("/api/people/".concat(this.$route.params.id), {
-      name: this.name,
-      age: this.age,
-      job: this.job
+    axios.patch("/api/people/".concat(data.id), {
+      name: data.name,
+      age: data.age,
+      job: data.job
     }).then(function (res) {
-      _this.$router.push({
+      _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
         name: 'person.show',
         params: {
-          id: _this.$route.params.id
+          id: data.id
         }
       });
     });

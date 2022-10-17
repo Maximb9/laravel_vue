@@ -1,3 +1,5 @@
+import router from "../../router";
+
 const state = {
     person: null,
     people: null
@@ -15,7 +17,7 @@ const actions = {
                 commit('setPerson', res.data.data)
             });
     },
-    
+
     getPeople({commit}) {
         axios.get('/api/people')
             .then(res => {
@@ -30,14 +32,14 @@ const actions = {
             })
     },
 
-    update() {
-        axios.patch(`/api/people/${this.$route.params.id}`, {
-            name: this.name,
-            age: this.age,
-            job: this.job
+    update({}, data) {
+        axios.patch(`/api/people/${data.id}`, {
+            name: data.name,
+            age: data.age,
+            job: data.job
         })
             .then(res => {
-                this.$router.push({name: 'person.show', params: {id: this.$route.params.id}})
+                router.push({name: 'person.show', params: {id: data.id}})
             })
     }
 }
